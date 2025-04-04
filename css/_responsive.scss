@@ -1,0 +1,231 @@
+$breakpoint-mobile: 320px;
+$mobile-xlarge: 600px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large-desktop: 1440px;
+
+body {
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 14px;
+  }
+}
+body {
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 16px;
+  }
+}
+body {
+  @media (max-width: $breakpoint-desktop) {
+    font-size: 18px;
+  }
+}
+
+nav {
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr) !important;
+
+    .nav-menu,
+    .nav-right {
+      display: none;
+    }
+
+    .menu-icon {
+      display: flex;
+      margin-left: auto;
+    }
+
+    .mobile-menu {
+      display: flex;
+    }
+
+    .nav-title {
+      text-align: left;
+      margin-right: auto;
+    }
+  }
+}
+
+.section__1 {
+  @media (max-width: $breakpoint-mobile) {
+    h1 {
+      font-size: 1rem !important;
+      @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
+    }
+    h2 {
+      font-size: 3rem !important;
+      text-transform: uppercase;
+      @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
+    }
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $textColor2;
+      background-color: $textColor;
+      padding: 0.6rem 1.5rem !important;
+      border-radius: 50px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $textColor2;
+        color: $textColor;
+      }
+    }
+  }
+}
+
+.section__2 {
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem !important;
+    .img__section {
+      display: grid;
+      gap: 5rem;
+      grid-template-columns: repeat(1, 1fr) !important;
+      width: 100%;
+    }
+  }
+}
+
+.section__3 {
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem !important;
+    .list__section_1 {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+    }
+  }
+}
+
+.section__3 {
+  @media (max-width: $breakpoint-tablet) {
+    padding: 1rem !important;
+    .list__section_1 {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    .list__section_2 {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 2rem !important;
+    }
+    .option-1 {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+    }
+    button {
+      max-width: 100% !important;
+    }
+  }
+}
+
+.section__4 {
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem !important;
+    img {
+      width: 50px !important;
+    }
+    .carousel {
+      display: flex;
+      gap: 4rem !important;
+      animation: scroll-x 15s linear infinite;
+    }
+  }
+}
+
+.section__6 {
+  padding: 1rem !important;
+  @media (max-width: $breakpoint-mobile) {
+  }
+}
+
+.main__grid {
+  padding: 1rem !important;
+  @media (max-width: $breakpoint-tablet) {
+    > .img__row:nth-child(3) {
+      grid-column: 1 / -1; // Span across the entire grid
+      justify-self: center; // Center the content horizontally
+    }
+  }
+}
+
+.section__7 {
+  @media (max-width: $breakpoint-mobile) {
+    padding: 1rem !important;
+    .section__grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr) !important;
+      gap: 2rem;
+      width: 100%;
+    }
+    input,
+    textarea {
+      width: 100%;
+      max-width: 450px !important;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .send__message {
+      padding: 0 !important;
+    }
+  }
+}
+
+.section__7 {
+  @media (max-width: $mobile-xlarge) {
+    padding: 1rem !important;
+    .section__grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr) !important;
+      gap: 2rem;
+      width: 100%;
+    }
+    input,
+    textarea {
+      width: 100%;
+      max-width: 590px !important;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .send__message {
+      padding: 0 !important;
+    }
+  }
+}
+
+.section__7 {
+  @media (max-width: $breakpoint-tablet) {
+    padding: 1rem !important;
+    .section__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      width: 100%;
+    }
+    input,
+    textarea {
+      width: 100%;
+      max-width: 590px !important;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .send__message {
+      padding: 0 !important;
+    }
+  }
+}

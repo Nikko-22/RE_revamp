@@ -1,0 +1,209 @@
+@mixin textShadow(
+  $x-offset: 2px,
+  $y-offset: 2px,
+  $blur: 5px,
+  $color: rgba(0, 0, 0, 0.5)
+) {
+  text-shadow: $x-offset $y-offset $blur $color;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexCenterRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+@mixin flexCenterCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  background-color: $primaryColor;
+  z-index: 1000;
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
+  nav {
+    display: grid;
+    width: 100%;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out !important;
+  }
+
+  nav.hidden {
+    transform: translateY(-100%) !important; /* Slide the header out of view */
+    display: none;
+  }
+
+  .link_tag {
+    text-wrap: nowrap;
+    position: relative; /* Ensures the pseudo-element is positioned relative to the link */
+    color: $fourthColor; /* Text color */
+    text-decoration: none; /* Removes default underline */
+    display: inline-block;
+  }
+
+  .link_tag::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $fourthColor;
+    transition: width 0.3s;
+  }
+
+  .link_tag:hover::after {
+    width: 100%; /* Expands the underline to the full width of the link on hover */
+  }
+
+  /* Navbar Left (Menu) */
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+  }
+
+  /* Centered H1 */
+  .nav-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* Right Side: Buttons & Socials */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 8rem;
+  }
+
+  .Inquire__button {
+    padding: 8px 16px;
+    background-color: $fourthColor;
+    color: $secondaryColor !important;
+    border: 1px solid $fourthColor;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: $secondaryColor !important;
+      color: $fourthColor !important;
+    }
+  }
+
+  .social-icons a {
+    color: #333;
+    font-size: 1.2rem;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* Menu Icon (Hidden on Desktop) */
+  .menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .menu-icon span {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    transition: 0.3s ease;
+  }
+
+  /* X Animation for Menu Icon */
+  .menu-icon.active span:nth-child(1) {
+    transform: rotate(-45deg) translateY(11px);
+  }
+
+  .menu-icon.active span:nth-child(2) {
+    opacity: 0; /* Hide middle bar */
+  }
+
+  .menu-icon.active span:nth-child(3) {
+    transform: rotate(45deg) translateY(-11px);
+  }
+
+  /* Fullscreen Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: -100%;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #d1b996;
+    @include flexCenter();
+    @include flexColumn();
+    transition: top 0.3s ease-in-out;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-menu.active {
+    top: 0;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .mobile-menu li {
+    margin: 20px 0;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,494 @@
+$primaryColor: rgb(241, 235, 233);
+$secondaryColor: rgb(196, 182, 147);
+$thirdColor: rgb(100, 90, 65);
+$fourthColor: rgb(62, 43, 36);
+$textColor: #ffffff;
+$textColor2: #111;
+
+$breakpoint-mobile: 320px;
+$mobile-xlarge: 600px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large-desktop: 1440px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+}
+
+@import "./header";
+
+main {
+  .section__1 {
+    position: relative; /* Establish a positioning context */
+    img {
+      object-fit: cover;
+      object-position: center center;
+      min-height: 100vh; /* Example height for a hero section */
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &::before {
+      content: ""; /* Create an empty pseudo-element */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+      z-index: 1; /* Place the overlay above the background image */
+    }
+
+    /* Ensure content within the section stays on top */
+    > * {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  .Text {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+
+    height: 100vh;
+    color: $textColor;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-left: 1rem;
+
+    h1 {
+      font-size: 1.25rem;
+      @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
+    }
+    h2 {
+      font-size: 5rem;
+      text-transform: uppercase;
+      @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
+    }
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $textColor2;
+      background-color: $textColor;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $textColor2;
+        color: $textColor;
+      }
+    }
+  }
+
+  .section__2 {
+    background-color: $primaryColor;
+    width: 100%;
+    padding: 6.25rem;
+
+    picture {
+      @include flexCenter();
+      img {
+        width: 100%;
+        max-width: 500px;
+        height: fit-content;
+        @include flexCenter();
+      }
+    }
+    h1 {
+      @include flexCenter();
+      width: 100%;
+      font-size: 2.5rem;
+      font-weight: 400;
+      background-color: $primaryColor;
+    }
+
+    .img__section {
+      display: grid;
+      gap: 5rem;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+    }
+    .text__column {
+      text-align: center;
+      @include flexCenterCol();
+      gap: 3rem;
+    }
+  }
+
+  .section__3 {
+    padding: 100px;
+    @include flexCenterCol;
+    position: relative; /* Establish a positioning context */
+    img {
+      object-fit: cover;
+      object-position: center center;
+      min-height: 100%; /* Example height for a hero section */
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+    &::before {
+      content: ""; /* Create an empty pseudo-element */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+      z-index: 1; /* Place the overlay above the background image */
+    }
+
+    /* Ensure content within the section stays on top */
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.25rem;
+      color: $textColor;
+      @include textShadow;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 200px;
+      cursor: pointer;
+      border: none;
+      border-radius: 50px;
+      text-wrap: nowrap;
+      text-align: center;
+    }
+
+    .form__section {
+      background-color: $textColor;
+      width: 100%;
+      height: fit-content;
+      margin-top: 5rem;
+      h1 {
+        text-align: start;
+        padding: 1rem 3rem;
+        color: $thirdColor;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: fit-content;
+      gap: 3rem;
+      padding: 3rem;
+      .list__section_1 {
+        display: flex;
+        gap: 1rem;
+        .list__section_2 {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          gap: 1rem;
+        }
+        .option-1 {
+          display: flex;
+          gap: 1rem;
+          width: 100%;
+        }
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+      }
+
+      select,
+      input {
+        height: 40px;
+        width: 100%;
+      }
+      input {
+        border-top: #111;
+        border-left: #111;
+        border-right: #111;
+      }
+    }
+  }
+
+  .section__4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide the overflow to make scrolling seamless */
+    position: relative;
+    width: 100%;
+    height: 300px; /* Example height for the carousel */
+
+    .carousel {
+      display: flex;
+      gap: 8rem; /* Remove any space between images */
+      animation: scroll-x 15s linear infinite; /* Smooth continuous scrolling */
+      width: calc(
+        200%
+      ); /* Ensure the container is twice the width for seamless looping */
+    }
+
+    img {
+      flex-shrink: 0; /* Prevent images from shrinking */
+      width: 100px; /* Adjust width while maintaining aspect ratio */
+      height: 100%; /* Adjust height of images */
+    }
+
+    @keyframes scroll-x {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%); /* Scroll half the width for looping */
+      }
+    }
+  }
+
+  .section__5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 1;
+      font-size: 1.5rem;
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+
+    .prev-btn:hover,
+    .next-btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .dot {
+      object-fit: cover;
+      transition: background-color 0.3s;
+
+      img {
+        max-width: 100px;
+        height: 50px;
+      }
+    }
+  }
+
+  .section__6 {
+    text-align: center;
+    width: 100%;
+    padding: 100px;
+    height: fit-content;
+    h2 {
+      font-size: 2.5rem;
+    }
+    .main__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 3rem;
+    }
+    img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+
+  .section__7 {
+    width: 100%;
+    margin: 5rem 0;
+    h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+
+    select {
+      width: 100%;
+      max-width: 400px;
+      height: 40px;
+    }
+
+    .section__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+    }
+
+    .send__message {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 100px;
+      gap: 0.5rem;
+
+      label {
+        align-self: flex-start;
+        font-weight: 500;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        max-width: 450px;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      textarea {
+        height: 150px;
+        resize: vertical;
+      }
+
+      button {
+        border: none;
+        padding: 0.6rem 2rem;
+        border-radius: 50px;
+        text-align: center;
+        margin-top: 1rem;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #555;
+        }
+      }
+    }
+
+    .visit {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      gap: 1.5rem;
+
+      i {
+        font-size: 2rem;
+        color: rgb(72, 235, 72);
+      }
+
+      .a-1 {
+        text-decoration: none;
+        color: white;
+        background-color: grey;
+        width: 100%;
+        max-width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+      }
+    }
+  }
+}
+
+footer {
+  height: 50vh;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $primaryColor;
+  gap: 2rem;
+
+  .social-icons {
+    display: flex;
+    gap: 2rem;
+  }
+  i {
+    color: $primaryColor;
+    font-size: 1.25rem;
+  }
+
+  p {
+    position: relative;
+    text-align: center;
+    display: inline-block; /* Makes the width shrink to content */
+  }
+
+  p::after {
+    content: "";
+
+    position: absolute;
+    left: 25%; /* Centers the 50% width */
+    bottom: -30px;
+    width: 50%;
+    height: 2px; /* Thickness of underline */
+    background-color: $primaryColor; /* Change to your desired color */
+  }
+}
+
+@import "./responsive";

@@ -1,0 +1,812 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+}
+
+header {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  background-color: rgb(241, 235, 233);
+  z-index: 1000;
+  /* Navbar Left (Menu) */
+  /* Centered H1 */
+  /* Right Side: Buttons & Socials */
+  /* Menu Icon (Hidden on Desktop) */
+  /* X Animation for Menu Icon */
+  /* Fullscreen Mobile Menu */
+}
+header img {
+  width: 100%;
+  max-width: 200px;
+}
+header nav {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease-in-out !important;
+}
+header nav.hidden {
+  transform: translateY(-100%) !important; /* Slide the header out of view */
+  display: none;
+}
+header .link_tag {
+  text-wrap: nowrap;
+  position: relative; /* Ensures the pseudo-element is positioned relative to the link */
+  color: rgb(62, 43, 36); /* Text color */
+  text-decoration: none; /* Removes default underline */
+  display: inline-block;
+}
+header .link_tag::after {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(62, 43, 36);
+  transition: width 0.3s;
+}
+header .link_tag:hover::after {
+  width: 100%; /* Expands the underline to the full width of the link on hover */
+}
+header .nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+header .nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+header .nav-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+header .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 8rem;
+}
+header .Inquire__button {
+  padding: 8px 16px;
+  background-color: rgb(62, 43, 36);
+  color: rgb(196, 182, 147) !important;
+  border: 1px solid rgb(62, 43, 36);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+header .Inquire__button:hover {
+  background-color: rgb(196, 182, 147) !important;
+  color: rgb(62, 43, 36) !important;
+}
+header .social-icons a {
+  color: #333;
+  font-size: 1.2rem;
+}
+header .social-icons {
+  display: flex;
+  gap: 1rem;
+}
+header .menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+header .menu-icon span {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  transition: 0.3s ease;
+}
+header .menu-icon.active span:nth-child(1) {
+  transform: rotate(-45deg) translateY(11px);
+}
+header .menu-icon.active span:nth-child(2) {
+  opacity: 0; /* Hide middle bar */
+}
+header .menu-icon.active span:nth-child(3) {
+  transform: rotate(45deg) translateY(-11px);
+}
+header .mobile-menu {
+  position: fixed;
+  top: -100%;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #d1b996;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  transition: top 0.3s ease-in-out;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+}
+header .mobile-menu.active {
+  top: 0;
+}
+header .mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+header .mobile-menu li {
+  margin: 20px 0;
+}
+header .mobile-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+main .section__1 {
+  position: relative; /* Establish a positioning context */
+  /* Ensure content within the section stays on top */
+}
+main .section__1 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  min-height: 100vh; /* Example height for a hero section */
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+main .section__1::before {
+  content: ""; /* Create an empty pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+  z-index: 1; /* Place the overlay above the background image */
+}
+main .section__1 > * {
+  position: relative;
+  z-index: 3;
+}
+main .Text {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  height: 100vh;
+  color: #ffffff;
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+main .Text h1 {
+  font-size: 1.25rem;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+main .Text h2 {
+  font-size: 5rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+main .Text a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #111;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+main .Text a:hover {
+  background-color: #111;
+  color: #ffffff;
+}
+main .section__2 {
+  background-color: rgb(241, 235, 233);
+  width: 100%;
+  padding: 6.25rem;
+}
+main .section__2 picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .section__2 picture img {
+  width: 100%;
+  max-width: 500px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .section__2 h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: 400;
+  background-color: rgb(241, 235, 233);
+}
+main .section__2 .img__section {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+main .section__2 .text__column {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+main .section__3 {
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative; /* Establish a positioning context */
+  /* Ensure content within the section stays on top */
+}
+main .section__3 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  min-height: 100%; /* Example height for a hero section */
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+main .section__3::before {
+  content: ""; /* Create an empty pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black overlay */
+  z-index: 1; /* Place the overlay above the background image */
+}
+main .section__3 > * {
+  position: relative;
+  z-index: 2;
+}
+main .section__3 h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+main .section__3 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  text-wrap: nowrap;
+  text-align: center;
+}
+main .section__3 .form__section {
+  background-color: #ffffff;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 5rem;
+}
+main .section__3 .form__section h1 {
+  text-align: start;
+  padding: 1rem 3rem;
+  color: rgb(100, 90, 65);
+}
+main .section__3 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 3rem;
+  padding: 3rem;
+}
+main .section__3 form .list__section_1 {
+  display: flex;
+  gap: 1rem;
+}
+main .section__3 form .list__section_1 .list__section_2 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+}
+main .section__3 form .list__section_1 .option-1 {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+main .section__3 form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+main .section__3 form select,
+main .section__3 form input {
+  height: 40px;
+  width: 100%;
+}
+main .section__3 form input {
+  border-top: #111;
+  border-left: #111;
+  border-right: #111;
+}
+main .section__4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide the overflow to make scrolling seamless */
+  position: relative;
+  width: 100%;
+  height: 300px; /* Example height for the carousel */
+}
+main .section__4 .carousel {
+  display: flex;
+  gap: 8rem; /* Remove any space between images */
+  animation: scroll-x 15s linear infinite; /* Smooth continuous scrolling */
+  width: 200%; /* Ensure the container is twice the width for seamless looping */
+}
+main .section__4 img {
+  flex-shrink: 0; /* Prevent images from shrinking */
+  width: 100px; /* Adjust width while maintaining aspect ratio */
+  height: 100%; /* Adjust height of images */
+}
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Scroll half the width for looping */
+  }
+}
+main .section__5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+main .section__5 .carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+main .section__5 .carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+main .section__5 img {
+  width: 100%;
+  flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .section__5 .prev-btn,
+main .section__5 .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 1.5rem;
+}
+main .section__5 .prev-btn {
+  left: 10px;
+}
+main .section__5 .next-btn {
+  right: 10px;
+}
+main .section__5 .prev-btn:hover,
+main .section__5 .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+main .section__5 .dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+main .section__5 .dot {
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: background-color 0.3s;
+}
+main .section__5 .dot img {
+  max-width: 100px;
+  height: 50px;
+}
+main .section__6 {
+  text-align: center;
+  width: 100%;
+  padding: 100px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+main .section__6 h2 {
+  font-size: 2.5rem;
+}
+main .section__6 .main__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 3rem;
+}
+main .section__6 img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .section__7 {
+  width: 100%;
+  margin: 5rem 0;
+}
+main .section__7 h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+main .section__7 select {
+  width: 100%;
+  max-width: 400px;
+  height: 40px;
+}
+main .section__7 .section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+main .section__7 .send__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 100px;
+  gap: 0.5rem;
+}
+main .section__7 .send__message label {
+  align-self: flex-start;
+  font-weight: 500;
+}
+main .section__7 .send__message input,
+main .section__7 .send__message textarea {
+  width: 100%;
+  max-width: 450px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+main .section__7 .send__message textarea {
+  height: 150px;
+  resize: vertical;
+}
+main .section__7 .send__message button {
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 50px;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+main .section__7 .send__message button:hover {
+  background-color: #555;
+}
+main .section__7 .visit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1.5rem;
+}
+main .section__7 .visit i {
+  font-size: 2rem;
+  color: rgb(72, 235, 72);
+}
+main .section__7 .visit .a-1 {
+  text-decoration: none;
+  color: white;
+  background-color: grey;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+footer {
+  height: 50vh;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(241, 235, 233);
+  gap: 2rem;
+}
+footer .social-icons {
+  display: flex;
+  gap: 2rem;
+}
+footer i {
+  color: rgb(241, 235, 233);
+  font-size: 1.25rem;
+}
+footer p {
+  position: relative;
+  text-align: center;
+  display: inline-block; /* Makes the width shrink to content */
+}
+footer p::after {
+  content: "";
+  position: absolute;
+  left: 25%; /* Centers the 50% width */
+  bottom: -30px;
+  width: 50%;
+  height: 2px; /* Thickness of underline */
+  background-color: rgb(241, 235, 233); /* Change to your desired color */
+}
+
+@media (max-width: 320px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  nav .nav-menu,
+  nav .nav-right {
+    display: none;
+  }
+  nav .menu-icon {
+    display: flex;
+    margin-left: auto;
+  }
+  nav .mobile-menu {
+    display: flex;
+  }
+  nav .nav-title {
+    text-align: left;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .section__1 h1 {
+    font-size: 1rem !important;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+  }
+  .section__1 h2 {
+    font-size: 3rem !important;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+  }
+  .section__1 a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #111;
+    background-color: #ffffff;
+    padding: 0.6rem 1.5rem !important;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+  .section__1 a:hover {
+    background-color: #111;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 320px) {
+  .section__2 {
+    padding: 1rem !important;
+  }
+  .section__2 .img__section {
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(1, 1fr) !important;
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .section__3 {
+    padding: 1rem !important;
+  }
+  .section__3 .list__section_1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section__3 {
+    padding: 1rem !important;
+  }
+  .section__3 .list__section_1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .section__3 .list__section_2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem !important;
+  }
+  .section__3 .option-1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .section__3 button {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .section__4 {
+    padding: 1rem !important;
+  }
+  .section__4 img {
+    width: 50px !important;
+  }
+  .section__4 .carousel {
+    display: flex;
+    gap: 4rem !important;
+    animation: scroll-x 15s linear infinite;
+  }
+}
+
+.section__6 {
+  padding: 1rem !important;
+}
+.main__grid {
+  padding: 1rem !important;
+}
+@media (max-width: 768px) {
+  .main__grid > .img__row:nth-child(3) {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .section__7 {
+    padding: 1rem !important;
+  }
+  .section__7 .section__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 2rem;
+    width: 100%;
+  }
+  .section__7 input,
+  .section__7 textarea {
+    width: 100%;
+    max-width: 450px !important;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .section__7 .send__message {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .section__7 {
+    padding: 1rem !important;
+  }
+  .section__7 .section__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 2rem;
+    width: 100%;
+  }
+  .section__7 input,
+  .section__7 textarea {
+    width: 100%;
+    max-width: 590px !important;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .section__7 .send__message {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .section__7 {
+    padding: 1rem !important;
+  }
+  .section__7 .section__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+  }
+  .section__7 input,
+  .section__7 textarea {
+    width: 100%;
+    max-width: 590px !important;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .section__7 .send__message {
+    padding: 0 !important;
+  }
+}/*# sourceMappingURL=styles.css.map */
