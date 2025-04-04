@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateCarousel();
       checkReset();
     }
-  }, 2200); // 1000 ms = 1 second
+  }, 4200); // 1000 ms = 1 second
 
   // Adjust carousel on window resize
   window.addEventListener("resize", updateCarousel);
