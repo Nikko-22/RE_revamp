@@ -34,7 +34,7 @@ main {
     img {
       object-fit: cover;
       object-position: center center;
-      min-height: 100vh; /* Example height for a hero section */
+      height: 100vh; /* Example height for a hero section */
       width: 100%;
       position: absolute;
       z-index: -1;
