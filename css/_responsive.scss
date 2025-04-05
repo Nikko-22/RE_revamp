@@ -1,6 +1,7 @@
 $breakpoint-mobile: 320px;
 $mobile-xlarge: 600px;
 $breakpoint-tablet: 768px;
+$breakpoint-tablet-large: 990px;
 $breakpoint-desktop: 1024px;
 $breakpoint-large-desktop: 1440px;
 
@@ -46,7 +47,35 @@ nav {
 }
 
 .section__1 {
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: $breakpoint-tablet) {
+    h1 {
+      font-size: 1.4rem !important;
+      @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
+    }
+    h2 {
+      font-size: 4rem !important;
+      text-transform: uppercase;
+      @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
+    }
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $textColor2;
+      background-color: $textColor;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $textColor2;
+        color: $textColor;
+      }
+    }
+  }
+}
+
+.section__1 {
+  @media (max-width: $mobile-xlarge) {
     h1 {
       font-size: 1rem !important;
       @include textShadow(3px, 3px, 8px, rgba(0, 0, 0, 0.6));
@@ -61,7 +90,7 @@ nav {
       text-decoration: none;
       color: $textColor2;
       background-color: $textColor;
-      padding: 0.6rem 1.5rem !important;
+      padding: 0.6rem 1.5rem;
       border-radius: 50px;
       transition: 0.3s;
 
@@ -74,7 +103,30 @@ nav {
 }
 
 .section__2 {
-  @media (max-width: $breakpoint-mobile) {
+  @media (max-width: $mobile-xlarge) {
+    padding: 1rem !important;
+    .img__section {
+      display: grid;
+      gap: 5rem;
+      grid-template-columns: repeat(1, 1fr) !important;
+      width: 100%;
+    }
+
+    .flex_row_2,
+    .flex_row,
+    .flex_row_3 {
+      display: flex !important;
+      flex-direction: column;
+    }
+
+    .flex_row_2 {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.section__2 {
+  @media (max-width: $breakpoint-tablet-large) {
     padding: 1rem !important;
     .img__section {
       display: grid;

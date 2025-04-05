@@ -34,7 +34,7 @@ main {
     img {
       object-fit: cover;
       object-position: center center;
-      height: 100vh; /* Example height for a hero section */
+      min-height: 100vh; /* Example height for a hero section */
       width: 100%;
       position: absolute;
       z-index: -1;
@@ -104,9 +104,7 @@ main {
       @include flexCenter();
       img {
         width: 100%;
-        max-width: 500px;
-        height: fit-content;
-        @include flexCenter();
+        height: auto;
       }
     }
     h1 {
@@ -120,9 +118,17 @@ main {
     .img__section {
       display: grid;
       gap: 5rem;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       width: 100%;
     }
+    .flex_row,
+    .flex_row_2,
+    .flex_row_3 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
     .text__column {
       text-align: center;
       @include flexCenterCol();
@@ -355,8 +361,10 @@ main {
     }
     img {
       width: 100%;
-      height: 250px;
+      height: auto;
+      object-position: center center;
       object-fit: cover;
+      border-radius: 50%;
     }
   }
 
